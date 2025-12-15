@@ -1,4 +1,13 @@
-provider "google" {
-  # project is read from env (GOOGLE_PROJECT) or can be passed via inputs
-  region = var.region
+required_providers {
+  google = {
+    source  = "hashicorp/google"
+    version = "~> 4.80"
+  }
+}
+
+provider "google" "default" {
+  config {
+    project = var.project_id
+    region  = var.region
+  }
 }
