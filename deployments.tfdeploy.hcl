@@ -5,7 +5,7 @@ identity_token "gcp" {
 deployment "dev" {
   inputs = {
     identity_token        = identity_token.gcp.jwt
-    audience              = "projects/167530401135/locations/global/workloadIdentityPools/github-wif-pool/providers/terraform-hcp-provider"
+    sts_audience = "projects/167530401135/locations/global/workloadIdentityPools/github-wif-pool/providers/terraform-hcp-provider"
     service_account_email = "firefly-workflows@sound-habitat-462410-m4.iam.gserviceaccount.com"
     project_id            = "sound-habitat-462410-m4"
     regions               = ["us-central1"]
