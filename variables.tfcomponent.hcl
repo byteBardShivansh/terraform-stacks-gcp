@@ -18,3 +18,8 @@ variable "identity_token" {
   type      = string
   sensitive = true
 }
+variable "identity_token" {
+  type      = string
+  sensitive = true
+  ephemeral = true
+}
