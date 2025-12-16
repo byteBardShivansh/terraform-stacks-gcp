@@ -1,14 +1,12 @@
-component "cluster" {
-  source = "./eks"
-  inputs = {
-    aws_region          = var.aws_region
-    cluster_name_prefix = var.prefix
-    instance_type       = "t2.medium"
-  }
+component "vm" {
+  source = "./components/vm"
+
   providers = {
-    aws       = provider.aws.this
-    random    = provider.random.this
-    tls       = provider.tls.this
-    cloudinit = provider.cloudinit.this
+    google = provider.google.default
   }
-}
+     name         = var.name
+    machine_type = var.machine_type
+    image        = var.image
+    zone         = var.zone
+    environment  = var.environment
+    }
