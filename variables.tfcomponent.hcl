@@ -6,7 +6,7 @@ variable "regions" {
   type = set(string)
 }
 
-variable "audience" {
+variable "sts_audience" {
   type = string
 }
 
