@@ -11,7 +11,7 @@ provider "google" "global" {
     project = var.project_id
 
     external_credentials {
-      audience              = var.audience
+      audience              = var.sts_audience
       service_account_email = var.service_account_email
       identity_token        = var.identity_token
     }
@@ -27,7 +27,7 @@ provider "google" "regional" {
     region  = each.value
 
     external_credentials {
-      audience              = var.audience
+      audience              = var.sts_audience
       service_account_email = var.service_account_email
       identity_token        = var.identity_token
     }
