@@ -1,15 +1,13 @@
 component "vm" {
   source = "./components/vm"
 
+  for_each = var.regions
+
   providers = {
-    google = provider.google.default
+    google = provider.google.regional[each.key]
   }
 
   inputs = {
-    name         = var.name
-    machine_type = var.machine_type
-    image        = var.image
-    zone         = var.zone
-    environment  = var.environment
+    region = each.key
   }
 }

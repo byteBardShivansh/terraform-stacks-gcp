@@ -1,31 +1,16 @@
-terraform {
-  required_version = "= 1.13.3"
-
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 4.80"
-    }
-  }
-}
-
 resource "google_compute_instance" "this" {
-  name         = var.name
-  machine_type = var.machine_type
-  zone         = var.zone
+  name         = "stack-vm-${var.region}"
+  machine_type = "e2-medium"
+  zone         = "${var.region}-a"
 
   boot_disk {
     initialize_params {
-      image = var.image
+      image = "debian-cloud/debian-11"
     }
   }
 
   network_interface {
     network = "default"
     access_config {}
-  }
-
-  labels = {
-    environment = var.environment
   }
 }

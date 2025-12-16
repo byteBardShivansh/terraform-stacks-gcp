@@ -1,11 +1,13 @@
+identity_token "gcp" {
+  audience = ["hcp.workload.identity"]
+}
+
 deployment "dev" {
   inputs = {
-    project_id   = "sound-habitat-462410-m4"
-    region       = "us-central1"
-    zone         = "us-central1-a"
-    name         = "dev-vm"
-    machine_type = "e2-medium"
-    image        = "debian-cloud/debian-11"
-    environment  = "dev"
+    identity_token        = identity_token.gcp.jwt
+    audience              = "hcp.workload.identity"
+    service_account_email = "firefly-workflows@sound-habitat-462410-m4.iam.gserviceaccount.com"
+    project_id            = "sound-habitat-462410-m4"
+    regions               = ["us-central1"]
   }
 }

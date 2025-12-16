@@ -2,26 +2,19 @@ variable "project_id" {
   type = string
 }
 
-variable "region" {
+variable "regions" {
+  type = set(string)
+}
+
+variable "audience" {
   type = string
 }
 
-variable "zone" {
+variable "service_account_email" {
   type = string
 }
 
-variable "name" {
-  type = string
-}
-
-variable "machine_type" {
-  type = string
-}
-
-variable "image" {
-  type = string
-}
-
-variable "environment" {
-  type = string
+variable "identity_token" {
+  type      = string
+  sensitive = true
 }
