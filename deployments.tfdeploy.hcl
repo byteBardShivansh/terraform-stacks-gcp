@@ -1,5 +1,6 @@
 deployment "dev" {
   inputs = {
+    project_id   = "sound-habitat-462410-m4"
     region       = "us-central1"
     zone         = "us-central1-a"
     name         = "dev-vm"
